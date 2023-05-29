@@ -21,8 +21,10 @@ with st.sidebar:
     ''')
     add_vertical_space(5)
     st.write('Made with ❤️ by [Bloom.pm](https://bloom.pm/)')
- 
-OPENAI_API_KEY = st.secrets['openai']["OPENAI_API_KEY"]
+
+load_dotenv()
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+#OPENAI_API_KEY = st.secrets['openai']["OPENAI_API_KEY"]
 
 def main():
     st.header("Chat with your assessment data 💬")
