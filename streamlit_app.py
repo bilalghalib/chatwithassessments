@@ -23,7 +23,8 @@ with st.sidebar:
     st.write('Made with ❤️ by [Bloom.pm](https://bloom.pm/)')
  
 load_dotenv()
- 
+OPENAI_API_KEY="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" = st.secrets["OPENAI_API_KEY"])
+
 def main():
     st.header("Chat with your assessment data 💬")
  
