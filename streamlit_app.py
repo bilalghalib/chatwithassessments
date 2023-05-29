@@ -25,7 +25,12 @@ with st.sidebar:
 
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+try:
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    st.write("os.getenv() method worked")
+except:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+    st.write("st.secrets method worked")
 
 def main():
     st.header("Chat with your assessment data 💬")
