@@ -22,8 +22,7 @@ with st.sidebar:
     add_vertical_space(5)
     st.write('Made with ❤️ by [Bloom.pm](https://bloom.pm/)')
  
-load_dotenv()
-OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+OPENAI_API_KEY = st.secrets['openai']["OPENAI_API_KEY"]
 
 def main():
     st.header("Chat with your assessment data 💬")
@@ -72,9 +71,10 @@ def main():
         if query:
             docs = VectorStore.similarity_search(query=query, k=3)
  
-            llm = OpenAI()
+            llm = OpenAI()o
             chain = load_qa_chain(llm=llm, chain_type="stuff")
-            with get_openai_callback() as cb:
+            with get_
+    _callback() as cb:
                 response = chain.run(input_documents=docs, question=query)
                 print(cb)
             st.write(response)
