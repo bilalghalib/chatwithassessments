@@ -71,13 +71,14 @@ def main():
         if query:
             docs = VectorStore.similarity_search(query=query, k=3)
  
-            llm = OpenAI()o
+
+            llm = OpenAI()
             chain = load_qa_chain(llm=llm, chain_type="stuff")
-            with get_
-    _callback() as cb:
+            with get_openai_callback() as cb:
                 response = chain.run(input_documents=docs, question=query)
                 print(cb)
             st.write(response)
+ 
  
 if __name__ == '__main__':
     main()
