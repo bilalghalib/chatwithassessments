@@ -10,6 +10,7 @@ from langchain.vectorstores import FAISS
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
+import openai
 import os
  
 # Sidebar contents
@@ -23,8 +24,8 @@ with st.sidebar:
     st.write('Made with ❤️ by [Bloom.pm](https://bloom.pm/)')
 
 load_dotenv()
-openai.api_key = os.environ.get('OPENAI_API_KEY')
-#OPENAI_API_KEY = st.secrets['openai']["OPENAI_API_KEY"]
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def main():
     st.header("Chat with your assessment data 💬")
